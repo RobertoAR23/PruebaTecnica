@@ -18,15 +18,12 @@ const Login = () => {
 
         if (user) {
             if (user.password === password) {
-                // Usuario y contraseña válidos, realizar acciones de inicio de sesión exitoso
                 alert('Inicio de sesión exitoso. ¡Bienvenido, ' + user.username + '!');
                 navigate('/home');
             } else {
-                // Contraseña incorrecta
                 setError('Contraseña incorrecta. Por favor, inténtalo nuevamente.');
             }
         } else {
-            // Usuario no existe
             setError('El usuario no existe. Por favor, verifica tus datos.');
         }
     };
