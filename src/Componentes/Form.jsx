@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import userData from '../data/users.json';
 
@@ -6,14 +6,14 @@ export default function Form() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [isButtonEnabled, setIsButtonEnabled] = useState(false);
     const navigate = useNavigate();
 
-    const handleLogin = () => {
-        if (!username.trim() || !password.trim()) {
-            setError('Por favor, completa todos los campos.');
-            return;
-        }
+    useEffect(() => {
+        setIsButtonEnabled(username.trim() && password.trim());
+    }, [username, password]);
 
+    const handleLogin = () => {
         const user = userData.users.find((user) => user.username === username);
 
         if (user) {
@@ -50,9 +50,14 @@ export default function Form() {
                 />
             </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
-            <button className="bg-escarlata text-white p-3 rounded-md hover:bg-red-800" onClick={handleLogin} disabled={!username.trim() || !password.trim()}>
+            <button
+                className={`text-white p-3 rounded-md ${isButtonEnabled ? 'bg-escarlata hover:bg-red-800' : 'bg-red-200 pointer-events-none'
+                    }`}
+                onClick={handleLogin}
+                disabled={!isButtonEnabled}
+            >
                 Iniciar Sesión
             </button>
         </div>
-    )
+    );
 }

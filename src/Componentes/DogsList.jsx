@@ -22,7 +22,7 @@ const DogsList = () => {
             <h2 className='text-center text-white text-5xl'>Lista de Perros</h2>
             <div className='grid grid-cols-1 lg:grid-cols-3 gap-4 md:grid-cols-2'>
                 {dogsData.map((dog) => (
-                    <div key={dog.id} className='bg-red-100 p-4 rounded-md shadow-md'>
+                    <div key={dog.id} className='bg-red-100 p-4 rounded-md shadow-md m-5'>
                         <h3 className='text-xl text-center font-semibold mb-2'>{dog.name}</h3>
                         <img src={dog.image.url} alt={dog.name} style={{ width: '200px' }} className='mx-auto mb-2' />
                         <p>Peso: {dog.weight.imperial} lbs ({dog.weight.metric} kg)</p>
