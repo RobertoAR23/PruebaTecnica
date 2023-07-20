@@ -49,7 +49,7 @@ export default function Form() {
                     className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:ring-escarlata focus:border-transparent"
                 />
             </div>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
+            {error && <p className='text-escarlata'>{error}</p>}
             <button
                 className={`text-white p-3 rounded-md ${isButtonEnabled ? 'bg-escarlata hover:bg-red-800' : 'bg-red-200 pointer-events-none'
                     }`}
