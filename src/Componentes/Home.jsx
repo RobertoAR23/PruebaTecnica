@@ -5,7 +5,7 @@ import DogsList from './DogsList'
 export default function Home() {
     return (
         <div>
-            Home
+
             <Hora />
             <DogsList />
         </div>

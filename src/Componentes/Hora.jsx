@@ -17,7 +17,7 @@ const Hora = () => {
         return () => clearInterval(intervalo);
     }, []);
 
-    return <div>{horaActual}</div>;
+    return <div className='text-5xl text-center bg-escarlata text-white'>{horaActual}</div>;
 };
 
 export default Hora;
